@@ -9,8 +9,13 @@ from django.template import RequestContext
 from django.utils.translation import activate
 from django.views.decorators.cache import cache_page
 from dateutil import parser
+from django.views.generic import TemplateView
 
 CACHE_LENGTH = getattr(settings, 'CACHE_LENGTH', 15) * 60
+
+
+class HomeView(TemplateView):
+    template_name = "home.html"
 
 
 def home(request):

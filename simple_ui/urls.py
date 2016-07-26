@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url
 
+from simple_ui.views import HomeView
 from . import views
 
 urlpatterns = [
     url(r'acknowledgements/$', views.acknowledgements, ),
     url(r'^(?P<slug>[a-zA-Z\-0-9]+)/?$', views.content, ),
     url(r'^(?P<slug>[a-zA-Z\-0-9]+)/(?P<language>[a-zA-Z\-0-9]+)/?$', views.content, ),
-    url(r'$', views.home, ),
+    url(r'$', HomeView.as_view(), name="home"),
 
 ]
